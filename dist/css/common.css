@@ -1,0 +1,16 @@
+@charset "utf-8";
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,input{
+	margin: 0;
+	padding: 0;
+}
+img{
+	vertical-align: bottom;
+	
+}
+ul,li,ol{
+	list-style: none;
+}
+a{
+	color: #000;
+	text-decoration: none;
+}
