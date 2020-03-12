@@ -1,178 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/common.css">
     <style>
-        #cartList img{
-            width: 50px;
-            height: 50px;
+        #cartList img {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #ceceec;
+            /* margin: 30px 0 0 80px; */
+            margin-bottom: 20px;
 
         }
-    
-        
+        body{
+            background-color: rgb(245,245,245);
+        }
+        .cart{
+            color: rgb(91,97,99);
+        }
+        #prodList{
+            float: left;
+            padding-top: 80px;
+        }
+        #prodList>li{
+            width: 250px;
+            height: 300px;
+            float: left;
+            background-color: white;
+            margin:  20px;
+            text-align: center;
+        }
+        .imgs{
+            width: 100px;
+            height: 120px;
+            margin-top: 30px;
+        }
+        .content{
+            width: 1200px;
+            margin: auto;
+        }
+        .pname{
+            color: rgb(100, 98, 98);
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .pdesc{
+            font-size: 12px;
+            color: rgb(153, 148, 145);
+        }
+        .addBtn{
+            background-color: red;
+            color: white;
+            width: 150px;
+            height: 40px;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .nav{
+            background-color: rgb(249,249,249);
+            color: rgb(91, 97, 99);
+        }
+        .nav-content{
+            /* background-color: black; */
+            width: 1200px;
+            margin: auto;
+            height: 40px;
+            line-height: 17px;
+            font-size: 14px;
+            /* cursor: pointer; */
+        }
+        .nav-left>li{
+            float: left;
+            cursor: pointer;
+            padding: 0 10px;
+            margin: 10px 0;
+            border-right: 1px solid #4d4a4a;
+        }
+        .nav-right>li{
+            float: right;
+            cursor: pointer;
+            padding: 0 10px;
+            margin: 10px 0;
+            border-right: 1px solid #5f5e5e;
+        }
+        .cart{
+            width: 1200px;
+            margin: auto;
+            padding: 30px;
+            background-color: white;
+            margin-top: 20px;
+        }
+        .titles{
+            background-color: white;
+            height: 100px;
+        }
+        .title-content{
+            width: 1200px;
+            margin: auto;
+            height: 100px;
+            line-height: 100px;
+            font-size: 30px;
+        }
+        .title-content img{
+            margin-bottom: 20px;
+        }
+        /* .two,.three,.four,.five{
+            padding: 0px 85px;
+
+        } */
+        .one{
+            padding: 0 170px 0 85px;
+        }
+        #cartList{
+            /* padding: 30px; */
+            width: 1200px;
+            margin: auto;
+            /* background-color: white; */
+        }
+        .pname{
+            padding: 0 20px;
+        }
+        .num{
+            width: 50px;
+            height: 30px;
+            /* margin: 50px 20px 0 20px; */
+            
+        }
+     
+        td{
+            text-align: center;
+            /* height: 80px;
+            line-height: 80px; */
+        }
+        .delBtn{
+            width: 80px;
+            height: 40px;
+            background-color: rgb(233, 94, 94);
+            color: white;
+            border: none;
+            font-size: 16px;
+        }
+        input[type='checkbox']{
+            width: 30px;
+            height: 30px;
+
+            background-color: rgb(95, 90, 90);
+            border: none;
+        }
     </style>
 </head>
+
 <body>
-    <input type="checkbox" id="checkAll" >全选
-    <ul id="cartList">
-        
-    </ul>
-    <div class="totalPrice">0</div>
+  
+    <div class="nav">
+        <div class="nav-content">
+        <ul class="nav-left">
+            <li>首页</li>
+            <li>华为官网</li>
+            <li>荣耀官网</li>
+            <li>花粉俱乐部</li>
+            <li>V码（优购码）</li>
+            <li>企业购</li>
+            <li>Select Region</li>
+            <li>更多精彩</li>
+        </ul>
+        <ul class="nav-right">
+            <li>请登录</li>
+            <li>注册</li>
+            <li>我的订单</li>
+            <li>客户服务</li>
+            <li>网站导航</li>
+            <li>手机版</li>
+        </ul>
+    </div>
+    </div>
+    <div class="titles">
+    <div class="title-content">
+        <img src="img/cart-vmall.png" alt="">
+        <span>我的购物车</span>
+    </div>
+</div>
+<table class="cart">
+    <thead class="cart">
+    <td><input type="checkbox" id="checkAll"></td>
+    <td class="one">商品</td>
+    <td class="two">单价</td>
+    <td class="three">数量</td>
+    <td class="four">小计</td>
+    <td class="five">操作</td>
+    </thead>
+    <tbody id="cartList">
+       
+    </tbody>
+    <tr>
+    <td class="totalPrice">0</td>
+</tr>
+</table>
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/cookie.js"></script>
     <script>
         var oList = document.querySelector('#cartList');
-        var str='';
-        $(function(){
+        var str = '';
+        $(function () {
 
-        
-        $.get(
-            'http://jx.xuzhixiang.top/ap/api/cart-list.php',
-            {
-                id:getCookie('uid')
-            }).then(data=>{
-                data.data.forEach(function(val,index){
-                str+=`<li><input type="checkbox" class="ck"  ><img src="${val.pimg}" width: 100px; height:100px>
-                <span class="pname">${val.pname}</span>
-                <span class="pprice">${val.pprice}</span>
-                <span class="minus">-</span>
+
+            $.get(
+                'http://jx.xuzhixiang.top/ap/api/cart-list.php',
+                {
+                    id: getCookie('uid')
+                }).then(data => {
+                    data.data.forEach(function (val, index) {
+                        str += `<tr>
+                        <td><input type="checkbox" class="ck"  ></td>
+                        <td><img src="${val.pimg}"><span class="pname">${val.pname}</span></td>
+                <td><span class="pprice">${val.pprice}<span></td>
+                <td><span class="minus">-</span>
                 <input type="text" value="${val.pnum}" class="num">
-                <span class="plus">+</span>
-                ---<span class="perTotalPrice">${val.pprice*val.pnum}</span>
-                <input type="button" value="删除" class="delBtn">
-                <span class="pdesc" hidden>${val.pdesc}</span></li> `
-                oList.innerHTML=str;
-                console.log(data);
-            }) 
-            // console.log($('.delBtn').length);
-            var lengths=$('.delBtn').length;
-             $('.delBtn').each(function(i){
-                $('.delBtn').eq(i).click(function(){
-                   console.log(data.data[i].pid);
-                    $('li').eq(i).remove();
-                $.get(
-                    'http://jx.xuzhixiang.top/ap/api/cart-delete.php',
-                    {
-                        uid:getCookie('uid'),
-                        pid:data.data[i].pid,
+                <span class="plus">+</span></td>
+                <td><span class="perTotalPrice">${val.pprice * val.pnum}</span></td>
+                <td><input type="button" value="删除" class="delBtn"></td>
+                <td><span class="pdesc" hidden>${val.pdesc}</span></td>
+                </tr>`
+                        oList.innerHTML = str;
+                        console.log(data);
+                    })
+                    // console.log($('.delBtn').length);
+                    var lengths = $('.delBtn').length;
+                    $('.delBtn').each(function (i) {
+                        $('.delBtn').eq(i).click(function () {
+                            console.log(data.data[i].pid);
+                            $('#cartList>tr').eq(i).remove();
+                            $.get(
+                                'http://jx.xuzhixiang.top/ap/api/cart-delete.php',
+                                {
+                                    uid: getCookie('uid'),
+                                    pid: data.data[i].pid,
+                                }
+
+                            ).then(data => {
+                                console.log(data);
+
+                            })
+                            totals();
+                            // console.log(data);
+                        })
+
+                    });
+                    // console.log($('.delBtn')); 
+                    $('#checkAll').click(function () {
+                        $(".ck").prop('checked', $(this).prop('checked'));
+                        $(this).css({'background-color':'red','color':'white'})
+                        totals();
+                    })
+                    $(".ck").click(function () {
+                        // console.log($('.ck:checked').length);
+                        if ($('.ck:checked').length == $('.ck').length) {
+                            $('#checkAll').prop('checked', true);
+                        } else {
+                            $('#checkAll').prop('checked', false);
+                        }
+                        totals();
+                    });
+
+
+                    $('.minus').click(function () {
+                        var index = $(this).parent().parent().index();
+                        console.log(index);
+                        var num_dec = parseInt($(".num").eq(index).val()) - 1;
+                        var pprice=parseInt($('.pprice').eq(index).text());
+                        if (num_dec < 1) {
+                            //购买数量必须大于或等于1
+                            $(".num").eq(index).val("1");
+                            $('.perTotalPrice').eq(index).text(1 * pprice);
+                        } else {
+                            $(".num").eq(index).val(num_dec);
+                            $('.perTotalPrice').eq(index).html(num_dec * pprice);
+                        }
+                        $.get(
+                            'http://jx.xuzhixiang.top/ap/api/cart-update-num.php',
+                            {
+                                uid: getCookie('uid'),
+                                pid: 197101,
+                                pnum: num_dec
+                            }
+                        ).then(data => {
+                            console.log(data);
+                        })
+                        totals();
+
+
+                    })
+                    $('.plus').off("click").click(function () {
+                       
+                        var index = $(this).parents('tr').index();
+                        console.log($(this).parents('tr'));
+                        console.log(index);
+                        // console.log($(this).parent().parent().eq(index).text());
+                        var pprice=parseInt($('.pprice').eq(index).text());
+                        // console.log($(this).parent());
+                        var num_add = parseInt($(".num").eq(index).val()) + 1;
+                        // console.log(num_add)
+                        if ($(".num").eq(index).val() == "") {
+                            num_add = 1;
+                        }
+                        $(".num").eq(index).val(num_add);
+                        $('.perTotalPrice').eq(index).html(num_add * pprice);
+                        // $('.totalPrice').html(num_add*100+total);
+                        // console.log(total);
+                        totals();
+
+                    });
+                    let total = 0;
+                    console.log($('.ck').prop('checked'));
+
+
+                    //         $('.ck').each(function(i,values){
+                    //             console.log(i);
+                    //             console.log(values);
+                    //             if($('.ck').prop('checked')){
+                    //             total += Number($('.perTotalPrice').eq(i).html());
+                    //             // console.log(($('.perTotalPrice').text()));
+                    //             $('.totalPrice').html(total);
+                    //         }
+                    // })
+                    // function checkNum(){
+                    //         var num=0;
+                    //         $(".ck").each(function(){
+                    //             if(this.checked==true){
+                    //                 var b=$($(this).siblings().eq(5).html());
+                    //                 num+=Number(b);
+                    //             }
+                    //         });
+                    //         $(".totalPrice").html(num);
+                    //     }
+
+
+                    function totals() {
+                        let sum = 0;
+                        $(".perTotalPrice").each(function () {//先循环每个小计
+                        console.log($(this).parent().parent());
+                            if (($(this).parent().parent().find(".ck")).prop("checked")) {//判断复选框有没有选中
+                                sum += parseFloat($(this).html());
+                            }
+                            $(".totalPrice").html(sum);
+                        });
                     }
-                    
-                ).then(data=>{
-                    console.log(data);
-                    
+
+
+
+                    //  $('.totalPrice').html(total);
+                    //  console.log(total);
+
+
+
+
+
+
                 })
-                totals();
-                // console.log(data);
-            })
-            
-            });
-            // console.log($('.delBtn')); 
-            $('#checkAll').click(function(){
-            $(".ck").prop('checked',$(this).prop('checked'));
-          totals();
         })
-            $(".ck").click(function(){
-            // console.log($('.ck:checked').length);
-               if($('.ck:checked').length == $('.ck').length){
-                   $('#checkAll').prop('checked',true);
-               }else{
-                   $('#checkAll').prop('checked',false);
-               }
-               totals();
-           });
 
-          
-           $('.minus').click(function () {
-                var index=$(this).parent().index();
-                console.log(index);
-                var num_dec = parseInt($(".num").eq(index).val()) - 1;
-                if (num_dec < 1) {
-                    //购买数量必须大于或等于1
-                    $(".num").eq(index).val("1");
-                    $('.perTotalPrice').eq(index).text(1*100);
-                } else {
-                    $(".num").eq(index).val(num_dec); 
-                    $('.perTotalPrice').eq(index).html(num_dec*100);
-                }
-                $.get(
-                    'http://jx.xuzhixiang.top/ap/api/cart-update-num.php',
-                    {
-                        uid:getCookie('uid'),
-                        pid:197101,
-                        pnum:num_dec
-                    }
-                ).then(data=>{
-                    console.log(data);
-                })
-                totals();
-                    
-              
-            })
-            $('.plus').click(function () {
-                 var index=$(this).parent().index();
-                // console.log(vals);
-                var num_add = parseInt($(".num").eq(index).val()) + 1;
-                if ($(".num").eq(index).val() == "") {
-                    num_add = 1;
-                }
-                $(".num").eq(index).val(num_add);
-                $('.perTotalPrice').eq(index).html(num_add*100);
-                // $('.totalPrice').html(num_add*100+total);
-                // console.log(total);
-                totals();
-
-            });
-            let total=0;
-            console.log($('.ck').prop('checked'));
-
-    
-//         $('.ck').each(function(i,values){
-//             console.log(i);
-//             console.log(values);
-//             if($('.ck').prop('checked')){
-//             total += Number($('.perTotalPrice').eq(i).html());
-//             // console.log(($('.perTotalPrice').text()));
-//             $('.totalPrice').html(total);
-//         }
-// })
-// function checkNum(){
-//         var num=0;
-//         $(".ck").each(function(){
-//             if(this.checked==true){
-//                 var b=$($(this).siblings().eq(5).html());
-//                 num+=Number(b);
-//             }
-//         });
-//         $(".totalPrice").html(num);
-//     }
-
-
-    function totals() {
- let sum = 0;
- $(".perTotalPrice").each(function () {//先循环每个小计
- if (($(this).parents("li").find(".ck")).prop("checked")) {//判断复选框有没有选中
- sum += parseFloat($(this).html());
- }
- $(".totalPrice").html(sum);
- });
- }
-
-          
-        
-        //  $('.totalPrice').html(total);
-        //  console.log(total);
-       
-                
-        
-        
-       
-        
-    })
-}) 
-        
     </script>
 </body>
+
 </html>
