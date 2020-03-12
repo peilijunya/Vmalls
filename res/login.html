@@ -13,12 +13,16 @@
 				
 			}
 			#img{
+				/* width: 100px; */
 				padding-top: 30px;
-				padding-bottom: 10px;
+				/* padding-bottom: 10px; */
 				height: 50px;
 				display: flex;
 				justify-content: center;
 				
+			}
+			#img>img{
+				width: 100px;
 			}
 			#logo{
 				margin: 0 auto;
@@ -100,7 +104,9 @@
 				justify-content: center;
 			}
 			#q img{
-				width: 32px;
+				width: 30px;
+				height: 25px;
+				margin-left: 20px;
 				
 				
 				
@@ -120,11 +126,13 @@
 		</style>
 	</head>
 	<body>
-		
+		<script src="js/jquery-1.11.0.js"></script>
+		<script src="js/cookie.js"></script>
+		<script src="js/login.js"></script>
 		<div id="huawei">
 			<div id="logo">
 				<div id="img">
-					<img src="img/huawei_logo.png" alt="logo">
+					<img src="img/huaweis.png" alt="logo">
 				</div>
 				<div id="d1">
 					<h1>登录</h1>
@@ -139,19 +147,20 @@
 						<br>
 						<input id="password" type="password" name="password" placeholder="请输入您的密码">
 						<br>
-						<a href="http://127.0.0.1:8848/%E5%8A%A8%E7%94%BB/%E6%89%BE%E5%9B%9E%E5%AF%86%E7%A0%81.html">忘记密码</a>
+						<a href="#">忘记密码</a>
 						<br>
-						<button type="submit">登录</button>
+						<button type="button" class="btn">登录</button>
+						
 						<br>
 						<div id="zhuce">
-							<a href="http://127.0.0.1:8848/%E5%8A%A8%E7%94%BB/%E6%B3%A8%E5%86%8C.html?username=&password=&lastname=&firstname=">立即注册</a>
-							
+							<a href="reg.html">立即注册</a>
+						
 						</div>
 						<div id="other">
 							<p>通过其他方式登录</p>
 							<div id="q">
-								<a href="#"><img src="img/in.png" ></a>
-								<a href="#"><img src="img/wx.png" ></a>
+								<a href="#"><img src="img/footers (3).png"  width="30px" height="30px"></a>
+								<a href="#"><img src="img/footers (10).png" width="30px" height="30px"></a>
 							</div>
 							
 						</div>

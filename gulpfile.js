@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const connect = require('gulp-connect');
 const sourcemaps = require("gulp-sourcemaps");
+const babel = require("gulp-babel");
 
 
 gulp.task("server", done => {
@@ -34,12 +35,14 @@ gulp.task('img',done=>{
   .pipe(connect.reload());
   done();
 })
-gulp.task('js',done=>{
-  gulp.src('res/js/*.js')
-  .pipe(gulp.dest('dist/js'))
-  .pipe(connect.reload());
+gulp.task("babel", done => {
+  gulp
+    .src("res/js/*.js")
+    .pipe(babel({ presets: ["@babel/env"] }))
+    .pipe(gulp.dest("dist/js"))
+    .pipe(connect.reload());
   done();
-})
+});
 gulp.task('css',done=>{
   gulp.src('res/css/*.css')
   .pipe(gulp.dest('dist/css'))
@@ -51,7 +54,7 @@ gulp.task('watch',done=>{
     gulp.watch('res/css/*.css',gulp.series('css'));
     gulp.watch('res/*.html',gulp.series('html'));
     gulp.watch('res/img/*.{png,,jpg,JPG}',gulp.series('img'));
-    gulp.watch('res/js/*.js',gulp.series('js'));
+    gulp.watch("res/js/*.js", gulp.series("babel"));
     done();
 })
 gulp.task('default',gulp.parallel('server','watch'));

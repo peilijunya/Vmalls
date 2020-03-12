@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        body{
+            background-color: rgb(245,245,245);
+        }
+        #prodList{
+            float: left;
+            padding-top: 80px;
+        }
+        #prodList>li{
+            width: 250px;
+            height: 300px;
+            float: left;
+            background-color: white;
+            margin:  20px;
+            text-align: center;
+        }
+        .imgs{
+            width: 100px;
+            height: 120px;
+            margin-top: 30px;
+        }
+        .content{
+            width: 1200px;
+            margin: auto;
+        }
+        .pname{
+            color: rgb(100, 98, 98);
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .pprice{
+            color: red;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+        .pdesc{
+            font-size: 12px;
+            color: rgb(153, 148, 145);
+        }
+        .addBtn{
+            background-color: red;
+            color: white;
+            width: 150px;
+            height: 40px;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .nav{
+            background-color: black;
+            color: rgb(91, 97, 99);
+        }
+        .nav-content{
+            /* background-color: black; */
+            width: 1200px;
+            margin: auto;
+            height: 40px;
+            line-height: 17px;
+            font-size: 14px;
+            /* cursor: pointer; */
+        }
+        .nav-left>li{
+            float: left;
+            cursor: pointer;
+            padding: 0 10px;
+            margin: 10px 0;
+            border-right: 1px solid #4d4a4a;
+        }
+        .nav-right>li{
+            float: right;
+            cursor: pointer;
+            padding: 0 10px;
+            margin: 10px 0;
+            border-right: 1px solid #5f5e5e;
+        }
+        .navs{
+            background-color: white;
+            height: 70px;
+
+        }
+        .navs-content{
+            margin: auto;
+            width: 1200px;
+        }
+        .navs-content li{
+            float: left;
+            padding: 0 10px;
+            line-height: 70px;
+            cursor: pointer;
+        }
+        .navs-list img{
+            width: 50px;
+            height: 30px;
+            margin: 20px 0 ;
+        }
+        .first-imgs{
+            border-right: 1px solid #cecece;
+            padding-right: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="nav">
+        <div class="nav-content">
+        <ul class="nav-left">
+            <li>首页</li>
+            <li>华为官网</li>
+            <li>荣耀官网</li>
+            <li>花粉俱乐部</li>
+            <li>V码（优购码）</li>
+            <li>企业购</li>
+            <li>Select Region</li>
+            <li>更多精彩</li>
+        </ul>
+        <ul class="nav-right">
+            <li>请登录</li>
+            <li>注册</li>
+            <li>我的订单</li>
+            <li>客户服务</li>
+            <li>网站导航</li>
+            <li>手机版</li>
+        </ul>
+    </div>
+    </div>
+    <div class="navs">
+        <div class="navs-content">
+            <ul class="navs-list">
+                <li><img src="img/vmall (2).png" alt="" class="first-imgs" >
+                </li>
+                <li><img src="img/vmall (1).png" alt="" class="sec-imgs">
+                </li>
+                <li>手机</li>
+                <li>笔记本电脑</li>
+                <li>平板&穿戴</li>
+                <li>智能家具</li>
+                <li>配件</li>
+                <li>企业购优惠</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <ul id="prodList">          
+        </ul>
+    </div>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/cookie.js"></script>
+    
+    <script>
+        //     $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", {
+        //     uid: getCookie('uid')
+        //   }).then(data => {
+        //     console.log(data);
+        //   });
+        //   $.post("http://jx.xuzhixiang.top/ap/api/goods/goods-add.php", {
+        //     pname: "华为畅享 10e",
+        //     pprice: 999,
+        //     pimg: "img/shouji4.png",
+        //     pdesc: "4GB+64GB 全网通版（幻夜黑）",
+        //     uid:getCookie('uid') 
+        //     }).then(data => {
+        //     console.log(data);
+        //   });
+        //   $.get("http://jx.xuzhixiang.top/ap/api/goods/goods-delete.php", {
+        //     uid: getCookie('uid'),
+        //     pid: 197514,
+        //     token: getCookie('tooken')
+        //   }).then(data => {
+        //     console.log(data);
+        //   });
+       $(function(){
+
+      
+        $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", {
+            uid: getCookie('uid')
+        }).then(data => {
+            var oList=document.querySelector('#prodList')
+            var str='';
+            console.log(data);
+            data.data.forEach(function(val,index){
+                str+=` <li>
+                <a href="detail.html?id=${val.pid}"><img src="${val.pimg}" class="imgs">
+                <p class="pname">${val.pname}</p>
+                <p class="pprice">${val.pprice}</p>
+                <p class="pdesc">${val.pdesc}</p> 
+                
+            </li>`
+                oList.innerHTML=str;
+            })   
+        });
+        $('.nav-content li').hover(function(){
+            $(this).css('color','white').siblings().css('color','rgb(91, 97, 99)');
+        },function(){
+            $('.nav-content li').css('color','rgb(91, 97, 99)');
+        });
+        $('.navs-list li' ).hover(function(){
+            $(this).css('color','red').siblings().css('color','black');
+
+        },function(){
+            $('.navs-list li').css('color','black');
+        });
+    })
+
+        
+    </script>
+
+</body>
+
+</html>

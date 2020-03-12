@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        #cartList img{
+            width: 50px;
+            height: 50px;
+
+        }
+    
+        
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="checkAll" >全选
+    <ul id="cartList">
+        
+    </ul>
+    <div class="totalPrice">0</div>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/cookie.js"></script>
+    <script>
+        var oList = document.querySelector('#cartList');
+        var str='';
+        $(function(){
+
+        
+        $.get(
+            'http://jx.xuzhixiang.top/ap/api/cart-list.php',
+            {
+                id:getCookie('uid')
+            }).then(data=>{
+                data.data.forEach(function(val,index){
+                str+=`<li><input type="checkbox" class="ck"  ><img src="${val.pimg}" width: 100px; height:100px>
+                <span class="pname">${val.pname}</span>
+                <span class="pprice">${val.pprice}</span>
+                <span class="minus">-</span>
+                <input type="text" value="${val.pnum}" class="num">
+                <span class="plus">+</span>
+                ---<span class="perTotalPrice">${val.pprice*val.pnum}</span>
+                <input type="button" value="删除" class="delBtn">
+                <span class="pdesc" hidden>${val.pdesc}</span></li> `
+                oList.innerHTML=str;
+                console.log(data);
+            }) 
+            // console.log($('.delBtn').length);
+            var lengths=$('.delBtn').length;
+             $('.delBtn').each(function(i){
+                $('.delBtn').eq(i).click(function(){
+                   console.log(data.data[i].pid);
+                    $('li').eq(i).remove();
+                $.get(
+                    'http://jx.xuzhixiang.top/ap/api/cart-delete.php',
+                    {
+                        uid:getCookie('uid'),
+                        pid:data.data[i].pid,
+                    }
+                    
+                ).then(data=>{
+                    console.log(data);
+                    
+                })
+                totals();
+                // console.log(data);
+            })
+            
+            });
+            // console.log($('.delBtn')); 
+            $('#checkAll').click(function(){
+            $(".ck").prop('checked',$(this).prop('checked'));
+          totals();
+        })
+            $(".ck").click(function(){
+            // console.log($('.ck:checked').length);
+               if($('.ck:checked').length == $('.ck').length){
+                   $('#checkAll').prop('checked',true);
+               }else{
+                   $('#checkAll').prop('checked',false);
+               }
+               totals();
+           });
+
+          
+           $('.minus').click(function () {
+                var index=$(this).parent().index();
+                console.log(index);
+                var num_dec = parseInt($(".num").eq(index).val()) - 1;
+                if (num_dec < 1) {
+                    //购买数量必须大于或等于1
+                    $(".num").eq(index).val("1");
+                    $('.perTotalPrice').eq(index).text(1*100);
+                } else {
+                    $(".num").eq(index).val(num_dec); 
+                    $('.perTotalPrice').eq(index).html(num_dec*100);
+                }
+                $.get(
+                    'http://jx.xuzhixiang.top/ap/api/cart-update-num.php',
+                    {
+                        uid:getCookie('uid'),
+                        pid:197101,
+                        pnum:num_dec
+                    }
+                ).then(data=>{
+                    console.log(data);
+                })
+                totals();
+                    
+              
+            })
+            $('.plus').click(function () {
+                 var index=$(this).parent().index();
+                // console.log(vals);
+                var num_add = parseInt($(".num").eq(index).val()) + 1;
+                if ($(".num").eq(index).val() == "") {
+                    num_add = 1;
+                }
+                $(".num").eq(index).val(num_add);
+                $('.perTotalPrice').eq(index).html(num_add*100);
+                // $('.totalPrice').html(num_add*100+total);
+                // console.log(total);
+                totals();
+
+            });
+            let total=0;
+            console.log($('.ck').prop('checked'));
+
+    
+//         $('.ck').each(function(i,values){
+//             console.log(i);
+//             console.log(values);
+//             if($('.ck').prop('checked')){
+//             total += Number($('.perTotalPrice').eq(i).html());
+//             // console.log(($('.perTotalPrice').text()));
+//             $('.totalPrice').html(total);
+//         }
+// })
+// function checkNum(){
+//         var num=0;
+//         $(".ck").each(function(){
+//             if(this.checked==true){
+//                 var b=$($(this).siblings().eq(5).html());
+//                 num+=Number(b);
+//             }
+//         });
+//         $(".totalPrice").html(num);
+//     }
+
+
+    function totals() {
+ let sum = 0;
+ $(".perTotalPrice").each(function () {//先循环每个小计
+ if (($(this).parents("li").find(".ck")).prop("checked")) {//判断复选框有没有选中
+ sum += parseFloat($(this).html());
+ }
+ $(".totalPrice").html(sum);
+ });
+ }
+
+          
+        
+        //  $('.totalPrice').html(total);
+        //  console.log(total);
+       
+                
+        
+        
+       
+        
+    })
+}) 
+        
+    </script>
+</body>
+</html>
