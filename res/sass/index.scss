@@ -60,6 +60,10 @@ body{
         padding: 5px;
     }
 }
+.shows{
+    display: block;
+
+}
 .header2-right{
     float: right;
 }
@@ -91,12 +95,9 @@ body{
 .header2-right{
     li:first-child,li:nth-child(2){
         a{
-            border: none;
-           
+            border: none;          
                 img{
-                    margin-bottom: 5px;
-
-                
+                    margin-bottom: 5px;    
             }
         }
     }
@@ -109,10 +110,8 @@ body{
 .header3{
     height: 60px;
     background-color: white;
-    // position: relative;
 }
 .header3-content{
-    // width: 1200px;
     margin: auto;
     height: 60px;
     .header3-img{
@@ -129,7 +128,6 @@ body{
         line-height: 30px;
         background: transparent;
         float: left;
-        // padding-right:30px ;
         border-radius: 15px;
         outline: none;
 
@@ -147,18 +145,15 @@ body{
         a{
             position: absolute;
             top: 9px;
-            // display: inline;
             color: #bfbfbf;
             font-size: 12px;
 
         }
         .HUAWEIMate30{
             left: 50px;
-            // margin-left: 200px;
         }
         .HUAWEIP30{
             right: 70px;
-            // margin-left: 200px;
         }
     }
 }
@@ -188,6 +183,13 @@ body{
         margin: auto;
         height: 500px;
         position:relative;
+    }
+    .btn-danger{
+        background-color:white ;
+        color: red;
+        border: none;
+
+
     }
     .img li{
         height: 500px;
@@ -249,12 +251,6 @@ body{
         background:white;
         display:none;
     }
-    // .menu .nav li ul{
-    //     width: 100%;
-    // }
-    // .menu .nav li .box.top li{
-    //     float: left;   
-    // }
     .menu .nav li  .top:after{
         content: '.';
         display: block;
@@ -281,16 +277,12 @@ body{
         width: 150px;
         height: 150px;
     }
-    // .menu .nav li .imgs a p{
-    //     height: 50px;
-    // }
-    
+
     .menu .nav li .box a:hover{
         color: rgb(175, 39, 39);
     }
 
     .blue-nav{
-        // width: 1200px;
         background-color: #371971;
         height: 80px;
         margin-bottom: 10px;
@@ -309,9 +301,6 @@ body{
             width: 180px;
             float: left;
             font-size: 20px;
-            // font-weight: 700;
-            // border-right: 1px solid #fff;
-            // padding: 10px 0  ;
             margin: 20px;
             text-align: center;
             height: 40px;
@@ -374,13 +363,9 @@ body{
        margin: auto;
        text-align: center;
        position: relative;
-    //    display: flex;
-    //    justify-content: center;
-    //    align-items: center;
     }
     .qiqiu{
         width: 209px;
-        // margin-bottom: 100px;
         position: absolute;
         top: 11px;
         right: -139px;
@@ -390,22 +375,11 @@ body{
     }
     .dingbu{
         width: 209px;
-        // margin-bottom: 100px;
         position: absolute;
         top: 490px;
         right: -139px;
         z-index: 10000;
-        
-
     }
-    // .aside-nav{
-    //     width: 120px;
-    //     height: 200px;
-    //     // background-color:rgb(127,82,214);
-    //     // position: absolute;
-    //     // top: 130px;
-    //     // right: -120px;
-    // }
     .aside-nav-lists{
         position: absolute;
         top: 130px;
@@ -431,8 +405,7 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
-        
+        text-align: center;    
     }
     .tuijian{
         width: 600px;
@@ -776,10 +749,6 @@ body{
     .kefu{
         margin: 10px 0;
     }
-    // .footerss-right{
-    //     // float: right;
-    //     // margin-left: -100px;
-    // }
     .imgss{
         width: 100px;
         height: 30px;
@@ -787,10 +756,7 @@ body{
         float: left;
         margin-right: 10px;
     }
-    // .nav-first{
-    //     margin-left: 80px;
 
-    // }
     .footer-footer-list{
         height: 20px;
     }

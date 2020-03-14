@@ -11,6 +11,8 @@ $(function(){
             if(data.code==1){
                 setCookie('uid',data.data.id);
                 setCookie('tooken',data.data.token);
+                localStorage.setItem('username',$('#username').val());
+                console.log(1); 
                 if (confirm("登录成功，是否要跳转到首页面")) {
                 window.location.href='index.html';
             } else {

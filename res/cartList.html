@@ -8,51 +8,57 @@
     <link rel="stylesheet" href="css/common.css">
     <style>
         #cartList img {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border: 1px solid #ceceec;
-            /* margin: 30px 0 0 80px; */
             margin-bottom: 20px;
+        }
 
+        body {
+            background-color: rgb(245, 245, 245);
         }
-        body{
-            background-color: rgb(245,245,245);
+
+        .cart {
+            color: rgb(91, 97, 99);
         }
-        .cart{
-            color: rgb(91,97,99);
-        }
-        #prodList{
+
+        #prodList {
             float: left;
             padding-top: 80px;
         }
-        #prodList>li{
+
+        #prodList>li {
             width: 250px;
             height: 300px;
             float: left;
             background-color: white;
-            margin:  20px;
+            margin: 20px;
             text-align: center;
         }
-        .imgs{
+
+        .imgs {
             width: 100px;
             height: 120px;
             margin-top: 30px;
         }
-        .content{
+
+        .content {
             width: 1200px;
             margin: auto;
         }
-        .pname{
+
+        .pname {
             color: rgb(100, 98, 98);
             font-size: 16px;
             margin: 5px 0;
         }
 
-        .pdesc{
+        .pdesc {
             font-size: 12px;
             color: rgb(153, 148, 145);
         }
-        .addBtn{
+
+        .addBtn {
             background-color: red;
             color: white;
             width: 150px;
@@ -62,11 +68,13 @@
             font-weight: bold;
             margin-top: 20px;
         }
-        .nav{
-            background-color: rgb(249,249,249);
+
+        .nav {
+            background-color: rgb(249, 249, 249);
             color: rgb(91, 97, 99);
         }
-        .nav-content{
+
+        .nav-content {
             /* background-color: black; */
             width: 1200px;
             margin: auto;
@@ -75,70 +83,81 @@
             font-size: 14px;
             /* cursor: pointer; */
         }
-        .nav-left>li{
+
+        .nav-left>li {
             float: left;
             cursor: pointer;
             padding: 0 10px;
             margin: 10px 0;
             border-right: 1px solid #4d4a4a;
         }
-        .nav-right>li{
+
+        .nav-right>li {
             float: right;
             cursor: pointer;
             padding: 0 10px;
             margin: 10px 0;
             border-right: 1px solid #5f5e5e;
         }
-        .cart{
+
+        .cart {
             width: 1200px;
             margin: auto;
             padding: 30px;
             background-color: white;
             margin-top: 20px;
         }
-        .titles{
+
+        .titles {
             background-color: white;
             height: 100px;
         }
-        .title-content{
+
+        .title-content {
             width: 1200px;
             margin: auto;
             height: 100px;
             line-height: 100px;
             font-size: 30px;
         }
-        .title-content img{
+
+        .title-content img {
             margin-bottom: 20px;
         }
+
         /* .two,.three,.four,.five{
             padding: 0px 85px;
 
         } */
-        .one{
+        .one {
             padding: 0 170px 0 85px;
         }
-        #cartList{
+
+        #cartList {
             /* padding: 30px; */
             width: 1200px;
             margin: auto;
             /* background-color: white; */
         }
-        .pname{
+
+        .pname {
             padding: 0 20px;
         }
-        .num{
+
+        .num {
             width: 50px;
             height: 30px;
             /* margin: 50px 20px 0 20px; */
-            
+
         }
-     
-        td{
+
+        td {
             text-align: center;
             /* height: 80px;
             line-height: 80px; */
         }
-        .delBtn{
+
+        .delBtn {
             width: 80px;
             height: 40px;
             background-color: rgb(233, 94, 94);
@@ -146,7 +165,8 @@
             border: none;
             font-size: 16px;
         }
-        input[type='checkbox']{
+
+        input[type='checkbox'] {
             width: 30px;
             height: 30px;
 
@@ -155,53 +175,75 @@
         }
     </style>
 </head>
+<script>
+    //登录状态保存
+      function load_data(){
+                var username=localStorage.getItem('username');
+                console.log(username);
+                if(username==null||username==''){
+                    $('.logins').show();
+                    $('#user').html('');
+                    $('.btn-danger').hide();
 
-<body>
-  
+                }else{
+                    $('.logins').hide();
+                    $('#user').html('欢迎您'+username);
+                    $('.btn btn-danger').show();
+                }
+            }
+           
+        
+</script>
+<body onload="load_data()">
+
     <div class="nav">
         <div class="nav-content">
-        <ul class="nav-left">
-            <li>首页</li>
-            <li>华为官网</li>
-            <li>荣耀官网</li>
-            <li>花粉俱乐部</li>
-            <li>V码（优购码）</li>
-            <li>企业购</li>
-            <li>Select Region</li>
-            <li>更多精彩</li>
-        </ul>
-        <ul class="nav-right">
-            <li>请登录</li>
-            <li>注册</li>
-            <li>我的订单</li>
-            <li>客户服务</li>
-            <li>网站导航</li>
-            <li>手机版</li>
-        </ul>
-    </div>
+            <ul class="nav-left">
+                <li>首页</li>
+                <li>华为官网</li>
+                <li>荣耀官网</li>
+                <li>花粉俱乐部</li>
+                <li>V码（优购码）</li>
+                <li>企业购</li>
+                <li>Select Region</li>
+                <li>更多精彩</li>
+            </ul>
+            <ul class="nav-right">
+               
+                <li ><a href="login.html" class="logins">请登录</a>
+                    <a href="login.html" id="user"></a>
+                </li>
+               
+                <li>注册</li>
+                <li>我的订单</li>
+                <li>客户服务</li>
+                <li>网站导航</li>
+                <li>手机版</li>
+            </ul>
+        </div>
     </div>
     <div class="titles">
-    <div class="title-content">
-        <img src="img/cart-vmall.png" alt="">
-        <span>我的购物车</span>
+        <div class="title-content">
+            <img src="img/cart-vmall.png" alt="">
+            <span>我的购物车</span>
+        </div>
     </div>
-</div>
-<table class="cart">
-    <thead class="cart">
-    <td><input type="checkbox" id="checkAll"></td>
-    <td class="one">商品</td>
-    <td class="two">单价</td>
-    <td class="three">数量</td>
-    <td class="four">小计</td>
-    <td class="five">操作</td>
-    </thead>
-    <tbody id="cartList">
-       
-    </tbody>
-    <tr>
-    <td class="totalPrice">0</td>
-</tr>
-</table>
+    <table class="cart">
+        <thead class="cart">
+            <td><input type="checkbox" id="checkAll"></td>
+            <td class="one">商品</td>
+            <td class="two">单价</td>
+            <td class="three">数量</td>
+            <td class="four">小计</td>
+            <td class="five">操作</td>
+        </thead>
+        <tbody id="cartList">
+
+        </tbody>
+        <tr>
+            <td class="totalPrice">0</td>
+        </tr>
+    </table>
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/cookie.js"></script>
     <script>
@@ -252,10 +294,11 @@
                         })
 
                     });
+                    //全选，单选
                     // console.log($('.delBtn')); 
                     $('#checkAll').click(function () {
                         $(".ck").prop('checked', $(this).prop('checked'));
-                        $(this).css({'background-color':'red','color':'white'})
+                        $(this).css({ 'background-color': 'red', 'color': 'white' })
                         totals();
                     })
                     $(".ck").click(function () {
@@ -269,11 +312,12 @@
                     });
 
 
+                    //减
                     $('.minus').click(function () {
                         var index = $(this).parent().parent().index();
                         console.log(index);
                         var num_dec = parseInt($(".num").eq(index).val()) - 1;
-                        var pprice=parseInt($('.pprice').eq(index).text());
+                        var pprice = parseInt($('.pprice').eq(index).text());
                         if (num_dec < 1) {
                             //购买数量必须大于或等于1
                             $(".num").eq(index).val("1");
@@ -296,71 +340,45 @@
 
 
                     })
+                    //加
                     $('.plus').off("click").click(function () {
-                       
                         var index = $(this).parents('tr').index();
                         console.log($(this).parents('tr'));
                         console.log(index);
-                        // console.log($(this).parent().parent().eq(index).text());
-                        var pprice=parseInt($('.pprice').eq(index).text());
-                        // console.log($(this).parent());
+                        var pprice = parseInt($('.pprice').eq(index).text());
                         var num_add = parseInt($(".num").eq(index).val()) + 1;
-                        // console.log(num_add)
                         if ($(".num").eq(index).val() == "") {
                             num_add = 1;
                         }
                         $(".num").eq(index).val(num_add);
                         $('.perTotalPrice').eq(index).html(num_add * pprice);
-                        // $('.totalPrice').html(num_add*100+total);
-                        // console.log(total);
+                        $.get(
+                            'http://jx.xuzhixiang.top/ap/api/cart-update-num.php',
+                            {
+                                uid: getCookie('uid'),
+                                pid: 197101,
+                                pnum: num_add
+                            }
+                        ).then(data => {
+                            console.log(data);
+                        })
                         totals();
 
                     });
+
+                    //计算总数
                     let total = 0;
                     console.log($('.ck').prop('checked'));
-
-
-                    //         $('.ck').each(function(i,values){
-                    //             console.log(i);
-                    //             console.log(values);
-                    //             if($('.ck').prop('checked')){
-                    //             total += Number($('.perTotalPrice').eq(i).html());
-                    //             // console.log(($('.perTotalPrice').text()));
-                    //             $('.totalPrice').html(total);
-                    //         }
-                    // })
-                    // function checkNum(){
-                    //         var num=0;
-                    //         $(".ck").each(function(){
-                    //             if(this.checked==true){
-                    //                 var b=$($(this).siblings().eq(5).html());
-                    //                 num+=Number(b);
-                    //             }
-                    //         });
-                    //         $(".totalPrice").html(num);
-                    //     }
-
-
                     function totals() {
                         let sum = 0;
                         $(".perTotalPrice").each(function () {//先循环每个小计
-                        console.log($(this).parent().parent());
+                            console.log($(this).parent().parent());
                             if (($(this).parent().parent().find(".ck")).prop("checked")) {//判断复选框有没有选中
                                 sum += parseFloat($(this).html());
                             }
                             $(".totalPrice").html(sum);
                         });
                     }
-
-
-
-                    //  $('.totalPrice').html(total);
-                    //  console.log(total);
-
-
-
-
-
 
                 })
         })

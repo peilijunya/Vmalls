@@ -7,9 +7,28 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
-</head>
 
-<body>
+</head>
+<script>
+    //登录状态保存
+      function load_data(){
+                var username=localStorage.getItem('username');
+                console.log(username);
+                if(username==null||username==''){
+                    $('.logins').show();
+                    $('#user').html('');
+                    $('.btn-danger').hide();
+
+                }else{
+                    $('.logins').hide();
+                    $('#user').html('欢迎您'+username);
+                    $('.btn btn-danger').show();
+                }
+            }
+           
+        
+</script>
+<body onload="load_data()">
     <div class="header1">
         <div class="header1-content">
             <a href="#"><img src="img/1 (1).png" alt="" style="width: 200px;height: 70px; left: 0; top: 10px;">
@@ -31,13 +50,15 @@
                 <li><a href="#">Select Region</a></li>
             </ul>
             <ul class="header2-right">
+                <li><button type="button"  class="btn btn-danger" >退出</button> </li>
                 <li><a href="#"><img src=img/sousuo.png>购物车</a></li>
                 <li><a href="#">手机版</a></li>
                 <li class="wangzhandaohang"><a href="#">网站导航</a></li>
                 <li><a href="#">客服服务</a></li>
                 <li><a href="#">我的订单</a></li>
                 <li><a href="reg.html">注册</a></li>
-                <li><a href="login.html">请登录</a></li>
+                <li ><a href="login.html" class="logins">请登录</a>
+                    <a href="login.html" id="user"></a></li>
             </ul>
         </div>
     </div>
@@ -51,7 +72,7 @@
             <div class="menu">
                 <ul class="nav">
                     <li class="one"><a href="#">手机</a>
-                    <div class="box">
+                        <div class="box">
                             <ul class="top">
                                 <li><a href="list.html">全部手机&nbsp;&gt;</a></li>
                                 <li><a href="#">HUAWEIMate系列&nbsp;&gt;</a></li>
@@ -61,103 +82,223 @@
                                 <li><a href="#">HUAWEI畅享系列&nbsp;&gt;</a></li>
                             </ul>
                             <ul class="imgs">
-                                <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                                <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                                <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                                <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                                <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                                <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            </ul>              
-                    </div>
-                </li>
-                <li class="one"><a href="#">笔记本电脑</a>
-                    <div class="box">
-                        <ul class="top">
-                            <li><a href="#">全部手机&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEIMate系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEIP系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI荣耀系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI麦芒系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI畅享系列&nbsp;&gt;</a></li>
-                        </ul>
-                        <ul class="imgs">
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="one"><a href="#">平板&穿戴</a>
-                    <div class="box">
-                        <ul class="top">
-                            <li><a href="#">全部手机&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEIMate系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEIP系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI荣耀系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI麦芒系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI畅享系列&nbsp;&gt;</a></li>
-                        </ul>
-                        <ul class="imgs">
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="one"><a href="#">智能家居</a>
-                    <div class="box">
-                        <ul class="top">
-                            <li><a href="#">全部手机&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEIMate系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEIP系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI荣耀系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI麦芒系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI畅享系列&nbsp;&gt;</a></li>
-                        </ul>
-                        <ul class="imgs">
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                        </ul>
-                    </div>
-                </li> 
-                <li class="one"><a href="#">配件</a>
-                    <div class="box">
-                        <ul class="top">
-                            <li><a href="#">全部手机&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEIMate系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEIP系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI荣耀系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI麦芒系列&nbsp;&gt;</a></li>
-                            <li><a href="#">HUAWEI畅享系列&nbsp;&gt;</a></li>
-                        </ul>
-                        <ul class="imgs">
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                            <li><a href="#"><img src="img/Mate.png" ><p>HUAWEIMate30</p><p>pro 5G</p><p>￥5899</p></a></li>
-                        </ul>
-                    </div>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="one"><a href="#">笔记本电脑</a>
+                        <div class="box">
+                            <ul class="top">
+                                <li><a href="#">全部手机&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEIMate系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEIP系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI荣耀系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI麦芒系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI畅享系列&nbsp;&gt;</a></li>
+                            </ul>
+                            <ul class="imgs">
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="one"><a href="#">平板&穿戴</a>
+                        <div class="box">
+                            <ul class="top">
+                                <li><a href="#">全部手机&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEIMate系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEIP系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI荣耀系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI麦芒系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI畅享系列&nbsp;&gt;</a></li>
+                            </ul>
+                            <ul class="imgs">
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="one"><a href="#">智能家居</a>
+                        <div class="box">
+                            <ul class="top">
+                                <li><a href="#">全部手机&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEIMate系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEIP系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI荣耀系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI麦芒系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI畅享系列&nbsp;&gt;</a></li>
+                            </ul>
+                            <ul class="imgs">
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="one"><a href="#">配件</a>
+                        <div class="box">
+                            <ul class="top">
+                                <li><a href="#">全部手机&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEIMate系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEIP系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI荣耀系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI麦芒系列&nbsp;&gt;</a></li>
+                                <li><a href="#">HUAWEI畅享系列&nbsp;&gt;</a></li>
+                            </ul>
+                            <ul class="imgs">
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                                <li><a href="#"><img src="img/Mate.png">
+                                        <p>HUAWEIMate30</p>
+                                        <p>pro 5G</p>
+                                        <p>￥5899</p>
+                                    </a></li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="one"><a href="#">企业购</a></li>
-            </ul>
+                </ul>
             </div>
             <div class="header3-right">
                 <input type="text" name="" id="" class="header3-serach">
                 <a href="#" class="HUAWEIMate30">HUAWEIMate30</a>
                 <a href="#" class="HUAWEIP30">HUAWEIP30</a>
-                <img src="img/cart.png" alt="" >
+                <img src="img/cart.png" alt="">
             </div>
 
         </div>
@@ -192,7 +333,7 @@
             <li>宅家娱乐</li>
             <li>在线学习</li>
             <li>运动健康</li>
-            <li>更多福利</li>    
+            <li>更多福利</li>
         </ul>
     </div>
     <div class="imgs1">
@@ -208,20 +349,21 @@
         <div class="yijian">一键领券</div>
     </div>
     <div class="imgs2">
-        <div class="tuijian">///&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实力推荐&nbsp;品质之选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///</div>
-        <img src="img/aas.png" alt="" srcset="" >
+        <div class="tuijian">///&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实力推荐&nbsp;品质之选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///
+        </div>
+        <img src="img/aas.png" alt="" srcset="">
         <div class="aside-nav">
             <img src="img/footer (3).png" alt="" class="qiqiu">
-           <ul class="aside-nav-lists">
-            <li>实力推荐&gt;</li>
-            <li>智慧办公&gt;</li>
-            <li>宅家娱乐&gt;</li>
-            <li>在线学习&gt;</li>
-            <li>运动健康&gt;</li>
-            <li>秒杀专区&gt;</li>
-            <li>更多福利&gt;</li>
-           </ul>
-           
+            <ul class="aside-nav-lists">
+                <li>实力推荐&gt;</li>
+                <li>智慧办公&gt;</li>
+                <li>宅家娱乐&gt;</li>
+                <li>在线学习&gt;</li>
+                <li>运动健康&gt;</li>
+                <li>秒杀专区&gt;</li>
+                <li>更多福利&gt;</li>
+            </ul>
+
             <img src="img/footer (2).png" alt="" class="dingbu" width="100px">
         </div>
     </div>
@@ -230,10 +372,28 @@
     </div>
     <div class="phone">
         <ul class="phone-list">
-            <li><a href="#"><img src="img/shouji111.png" alt=""><p class="phone-name">HUAWEINava6 5G</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3499元起<p class="zuigao">最高直降300|最高24期免息</p></div></a></li>
-            <li><a href="#"><img src="img/shouji222.png" alt=""><p class="phone-name">HUAWEINava6 5G</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起<p class="zuigao">购机赠耳机</p></div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
+            <li><a href="#"><img src="img/shouji111.png" alt="">
+                    <p class="phone-name">HUAWEINava6 5G</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3499元起<p class="zuigao">最高直降300|最高24期免息</p>
+                    </div>
+                </a></li>
+            <li><a href="#"><img src="img/shouji222.png" alt="">
+                    <p class="phone-name">HUAWEINava6 5G</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起<p class="zuigao">购机赠耳机</p>
+                    </div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
         </ul>
     </div>
     <div class="MateXS">
@@ -245,10 +405,27 @@
     </div>
     <div class="phone">
         <ul class="phone-list">
-            <li><a href="#"><img src="img/shouji111.png" alt=""><p class="phone-name">HUAWEINava6 5G</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起<p class="zuigao">最高直降300|最高24期免息</p></div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
+            <li><a href="#"><img src="img/shouji111.png" alt="">
+                    <p class="phone-name">HUAWEINava6 5G</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起<p class="zuigao">最高直降300|最高24期免息</p>
+                    </div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
         </ul>
     </div>
     <div class="imgs2">
@@ -257,10 +434,26 @@
     </div>
     <div class="phone">
         <ul class="phone-list">
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
         </ul>
     </div>
     <div class="imgs2">
@@ -269,10 +462,26 @@
     </div>
     <div class="phone">
         <ul class="phone-list">
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
         </ul>
     </div>
     <div class="imgs2">
@@ -281,10 +490,26 @@
     </div>
     <div class="phone">
         <ul class="phone-list">
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
+            <li><a href="#"><img src="img/lanse.png" alt="">
+                    <p class="phone-name">HUAWEINava4</p>
+                    <p class="phone-details">前置3500万像素自动对焦</p>
+                    <div class="phone-price">￥3400元起</div>
+                </a></li>
         </ul>
     </div>
     <div class="seckill">
@@ -313,54 +538,125 @@
     </div>
     <div class="biggerNav">
         <div class="small-nav">
-        <ul class="small-nav-list">
-            <li class="buleClicks">智能穿搭</li>
-            <li>智能穿搭</li>
-            <li>智能穿搭</li>
-            <li>智能穿搭</li>
-        </ul>
-        <ol class="small-nav-lists">
-            <li class="big-lists">
-                <ul class="phone-list">
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            </ul></li>
-            <li> <ul class="phone-list">
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            </ul></li>
-            <li> <ul class="phone-list">
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            </ul></li>
-            <li> <ul class="phone-list">
-                <li><a href="#"><img src="img/shouji.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-                <li><a href="#"><img src="img/lanse.png" alt=""><p class="phone-name">HUAWEINava4</p><p class="phone-details">前置3500万像素自动对焦</p><div class="phone-price">￥3400元起</div></a></li>
-            </ul></li>
-        </ol>
-    </div>
+            <ul class="small-nav-list">
+                <li class="buleClicks">智能穿搭</li>
+                <li>智能穿搭</li>
+                <li>智能穿搭</li>
+                <li>智能穿搭</li>
+            </ul>
+            <ol class="small-nav-lists">
+                <li class="big-lists">
+                    <ul class="phone-list">
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="phone-list">
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="phone-list">
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="phone-list">
+                        <li><a href="#"><img src="img/shouji.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                        <li><a href="#"><img src="img/lanse.png" alt="">
+                                <p class="phone-name">HUAWEINava4</p>
+                                <p class="phone-details">前置3500万像素自动对焦</p>
+                                <div class="phone-price">￥3400元起</div>
+                            </a></li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
     </div>
     <div class="assemble">
         <div class="tuijian">
             ///&nbsp;&nbsp;拼团钜惠&nbsp;&nbsp;好物齐分享&nbsp;&nbsp;///
         </div>
         <div class="assemble-lists">
-           <img src="img/pintuan.png" alt="" width="1150px">
+            <img src="img/pintuan.png" alt="" width="1150px">
         </div>
     </div>
-   
-        <div class="tuijian">
-            ///&nbsp;&nbsp;翻牌抽奖&nbsp;&nbsp;赢好礼&nbsp;&nbsp;///
-        </div>
-         <div class="lucky">
+
+    <div class="tuijian">
+        ///&nbsp;&nbsp;翻牌抽奖&nbsp;&nbsp;赢好礼&nbsp;&nbsp;///
+    </div>
+    <div class="lucky">
         <div class="turn">
             <ul class="turn-lists">
                 <li><img src="img/turn.png" alt="" width="150px" height="150px"></li>
@@ -373,127 +669,131 @@
                 <li><img src="img/turn.png" alt="" width="150px" height="150px"></li>
                 <li><img src="img/turn.png" alt="" width="150px" height="150px"></li>
             </ul>
-           <div class="lucky-man">
-               <img src="img/huodong.png" alt="">
-           </div>
+            <div class="lucky-man">
+                <img src="img/huodong.png" alt="">
+            </div>
         </div>
 
     </div>
     <div class="footer">
-    <div class="detail">
-        <img src="img/121212 (1).png" alt="" width="350px" height="80px">
+        <div class="detail">
+            <img src="img/121212 (1).png" alt="" width="350px" height="80px">
 
-    </div>
-    <div class="return-top">
-        <img src="img/121212 (2).png" alt="" width="350px" height="80px">
-    </div>
-</div>
-<div class="footers">
-<div class="footer-nav">
-    <ul class="footer-list">
-        <li><img src="img/footers (9).png" width="35px " height="30px" >百强企业 品质保证</li>
-        <li><img src="img/footers (9).png" width="35px " height="30px" >百强企业 品质保证</li>
-        <li><img src="img/footers (9).png" width="35px " height="30px" >百强企业 品质保证</li>
-        <li><img src="img/footers (9).png" width="35px " height="30px" >百强企业 品质保证</li>
-    </ul>
-    <div class="footer-nav-list">
-        <ul class="nav-first">
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-        </ul>
-        <ul>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-        </ul>
-        <ul>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-        </ul>
-        <ul>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-        </ul>
-        <ul>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-        </ul>
-        <ul>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-        </ul>
-        <ul class="lasts-child">
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-            <li>购物相关</li>
-        </ul>
-        <div class="nav-list-right">
-        <p  class="phone">400-088-6688</p>
-        <p>7x24小时客服热线（仅收市话</p>
-        <img src="img/footers (2).png" alt="" class="kefu">
-        <p>关注Vmall：<img src="img/footers (3).png" alt="" width="30px" height="28px"><img src="img/footers (1).png" alt=""width="30px" height="28px"><img src="img/footers (10).png" alt="" width="30px" height="28px"><img src="img/footers (4).png" alt=""width="30px" height="28px"></p>
+        </div>
+        <div class="return-top">
+            <img src="img/121212 (2).png" alt="" width="350px" height="80px">
         </div>
     </div>
-    <div class="footer-footer">
-        <img src="img/vmall (1).png" alt="" class="imgss" width="50px">
-        <div class="footerss-right"><ul class="footer-footer-list">
-            <li>华为集团</li>
-            <li>华为集团</li>
-            <li>华为集团</li>
-            <li>华为集团</li>
-            <li>华为集团</li>
-            <li>华为集团</li>
+    <div class="footers">
+        <div class="footer-nav">
+            <ul class="footer-list">
+                <li><img src="img/footers (9).png" width="35px " height="30px">百强企业 品质保证</li>
+                <li><img src="img/footers (9).png" width="35px " height="30px">百强企业 品质保证</li>
+                <li><img src="img/footers (9).png" width="35px " height="30px">百强企业 品质保证</li>
+                <li><img src="img/footers (9).png" width="35px " height="30px">百强企业 品质保证</li>
+            </ul>
+            <div class="footer-nav-list">
+                <ul class="nav-first">
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                </ul>
+                <ul>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                </ul>
+                <ul>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                </ul>
+                <ul>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                </ul>
+                <ul>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                </ul>
+                <ul>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                </ul>
+                <ul class="lasts-child">
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                    <li>购物相关</li>
+                </ul>
+                <div class="nav-list-right">
+                    <p class="phone">400-088-6688</p>
+                    <p>7x24小时客服热线（仅收市话</p>
+                    <img src="img/footers (2).png" alt="" class="kefu">
+                    <p>关注Vmall：<img src="img/footers (3).png" alt="" width="30px" height="28px"><img
+                            src="img/footers (1).png" alt="" width="30px" height="28px"><img src="img/footers (10).png"
+                            alt="" width="30px" height="28px"><img src="img/footers (4).png" alt="" width="30px"
+                            height="28px"></p>
+                </div>
+            </div>
+            <div class="footer-footer">
+                <img src="img/vmall (1).png" alt="" class="imgss" width="50px">
+                <div class="footerss-right">
+                    <ul class="footer-footer-list">
+                        <li>华为集团</li>
+                        <li>华为集团</li>
+                        <li>华为集团</li>
+                        <li>华为集团</li>
+                        <li>华为集团</li>
+                        <li>华为集团</li>
 
-            <li>华为集团</li>
-        </ul>
-        <p class="secret">隐私声明 服务协议 COOKIES Copyright © 2012-2019 华为软件技术有限公司 版权所有 保留一切权利</p>
-        <p class="certi">苏ICP备17040376号-6 增值电信业务经营许可证：苏B2-20130048号 | 网络文化经营许可证：苏网文[2015] 1599-026号 | 备案主体编号：44201919072182</p>
+                        <li>华为集团</li>
+                    </ul>
+                    <p class="secret">隐私声明 服务协议 COOKIES Copyright © 2012-2019 华为软件技术有限公司 版权所有 保留一切权利</p>
+                    <p class="certi">苏ICP备17040376号-6 增值电信业务经营许可证：苏B2-20130048号 | 网络文化经营许可证：苏网文[2015] 1599-026号 |
+                        备案主体编号：44201919072182</p>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-</div>
-
-
-</div>
-
-
-
-
     <script src="./js/jquery-1.11.0.js"></script>
     <script>
+
         $(function () {
+
+            //保存用户名
+          
+            //首页顶端点击关闭按钮关闭
             $('.header1-close').click(function () {
                 $('.header1').css('display', 'none');
             });
@@ -505,6 +805,8 @@
             }).click(function () {
                 $('.header3-right a').css('display', 'none');
             })
+
+            //搜索框鼠标移入移出效果
             $('.HUAWEIP30').mouseover(function () {
                 $(this).css('color', '#746f6f');
             }).mouseout(function () {
@@ -515,8 +817,9 @@
             }).mouseout(function () {
                 $(this).css('color', '#bfbfbf');
             })
-            var index = 0;
 
+            //轮播图
+            var index = 0;
             var time = setInterval(move, 1000);
             function move() {
                 index++;
@@ -532,6 +835,7 @@
                 function () {
                     time = setInterval(move, 1000);
                 });
+                //轮播图下面焦点按钮
             $('.num li').mouseover(function () {
                 clearInterval(time);
                 $(this).css('background', 'rgb(119, 110, 110)').siblings().css('background', 'white');
@@ -542,112 +846,101 @@
                 time = setInterval(move, 1000);
 
             });
+
             $('.nav li').mouseover(function () {
                 console.log(1);
-		// $(this).find("a").addClass("current");
-		$(this).find(".box").stop().slideDown(200);
-	})
-	$('.nav li').mouseleave(function(){
-		// $(this).find("a").removeClass("current");
-		$(this).find(".box").stop().slideUp(200);
-	});
-    $('.small-nav-list>li').click(function(){
-        $index=$(this).index();
-        console.log($index);
-        $(this).addClass('buleClicks').siblings().removeClass('buleClicks')
-        .parent().next().children().eq($index).addClass('big-lists').siblings().removeClass('big-lists');
-    });
-    var navOffset=$(".nav-list").offset().top;  
-    $(window).scroll(function(){
-        console.log(22);
-        var scrollPos=$(window).scrollTop(); 
-        if(scrollPos >=navOffset){  
-                    $(".nav-list").addClass("fixed");  
-                }else{  
-                    $(".nav-list").removeClass("fixed");  
-                }  
-    });
-    // var asideNavOffset=$(".aside-nav-lists").offset().top;  
-    // $(window).scroll(function(){
-    //     console.log(22);
-    //     var scrollPos2=$(window).scrollTop(); 
-    //     if(scrollPos2 >=asideNavOffset){  
-    //                 $(".aside-nav-lists").addClass("fixed2");  
-    //             }else{  
-    //                 $(".aside-nav-lists").removeClass("fixed2");
-    //             }  
-    // });
-    var asideNavOffset1=$(".qiqiu").offset().top;  
-    $(window).scroll(function(){
-        console.log(22);
-        var scrollPos1=$(window).scrollTop(); 
-        if(scrollPos1 >=asideNavOffset1){  
-                    $(".qiqiu").addClass("fixed1");  
-                    $(".aside-nav-lists").addClass("fixed2"); 
-                    $(".dingbu").addClass("fixed3");   
-                }else{  
+                $(this).find(".box").stop().slideDown(200);
+            })
+            $('.nav li').mouseleave(function () {
+                $(this).find(".box").stop().slideUp(200);
+            });
+            $('.small-nav-list>li').click(function () {
+                $index = $(this).index();
+                console.log($index);
+                $(this).addClass('buleClicks').siblings().removeClass('buleClicks')
+                    .parent().next().children().eq($index).addClass('big-lists').siblings().removeClass('big-lists');
+            });
+            var navOffset = $(".nav-list").offset().top;
+            $(window).scroll(function () {
+                console.log(22);
+                var scrollPos = $(window).scrollTop();
+                if (scrollPos >= navOffset) {
+                    $(".nav-list").addClass("fixed");
+                } else {
+                    $(".nav-list").removeClass("fixed");
+                }
+            });
+ 
+
+            //右侧固定导航
+            var asideNavOffset1 = $(".qiqiu").offset().top;
+            $(window).scroll(function () {
+                console.log(22);
+                var scrollPos1 = $(window).scrollTop();
+                if (scrollPos1 >= asideNavOffset1) {
+                    $(".qiqiu").addClass("fixed1");
+                    $(".aside-nav-lists").addClass("fixed2");
+                    $(".dingbu").addClass("fixed3");
+                } else {
                     $(".qiqiu").removeClass("fixed1");
                     $(".aside-nav-lists").removeClass("fixed2");
                     $(".dingbu").removeClass("fixed3");
-                }  
-    });
-    // var asideNavOffset3=$(".dingbu").offset().top;  
-    // $(window).scroll(function(){
-    //     console.log(22);
-    //     var scrollPos3=$(window).scrollTop(); 
-    //     if(scrollPos3 >=asideNavOffset3){  
-    //                 $(".dingbu").addClass("fixed3");  
-    //             }else{  
-    //                 $(".dingbu").removeClass("fixed3");
-    //             }  
-    // });
-    // $count=$('.nav-list').index();
-    var one_top = $('.imgs2').offset().top;
-    // console.log($count);
-        $('.nav-list>li').click(function () {
-           var count = $(this).index()+1;
-           if(count==1){
-            $('html,body').animate({scrollTop:one_top*count-100},500);
-           }else if(count==2){
-                $('html,body').animate({scrollTop:one_top*count+300},500);
-           }else if(count==5){
-            $('html,body').animate({scrollTop:one_top*count-100},500);
-           }else if(count==6){
-            $('html,body').animate({scrollTop:one_top*count+1600},500);
-           }else{
-            $('html,body').animate({scrollTop:one_top*count+200},500);
-           }
-           
-        });
-        $('.aside-nav-lists>li').click(function () {
-           var count = $(this).index()+1;
-           if(count==1){
-            $('html,body').animate({scrollTop:one_top*count-100},500);
-           }else if(count==2){
-                $('html,body').animate({scrollTop:one_top*count+300},500);
-           }else if(count==5){
-            $('html,body').animate({scrollTop:one_top*count-100},500);
-           }else if(count==7){
-            $('html,body').animate({scrollTop:one_top*count+500},500);
-           }else if(count==6){
-            $('html,body').animate({scrollTop:one_top*count-200},500);
-           }
-           else{
-            $('html,body').animate({scrollTop:one_top*count+200},500);
-           }
-           
-        });
-        
+                }
+            });
 
-        $('.return-top').click(function(){
-            $('html,body').animate({scrollTop:0},800);
-        });
-        $('.dingbu').click(function(){
-            $('html,body').animate({scrollTop:0},800);
-        })
+            //顶部固定导航
+            var one_top = $('.imgs2').offset().top;
+            $('.nav-list>li').click(function () {
+                var count = $(this).index() + 1;
+                if (count == 1) {
+                    $('html,body').animate({ scrollTop: one_top * count - 100 }, 500);
+                } else if (count == 2) {
+                    $('html,body').animate({ scrollTop: one_top * count + 300 }, 500);
+                } else if (count == 5) {
+                    $('html,body').animate({ scrollTop: one_top * count - 100 }, 500);
+                } else if (count == 6) {
+                    $('html,body').animate({ scrollTop: one_top * count + 1600 }, 500);
+                } else {
+                    $('html,body').animate({ scrollTop: one_top * count + 200 }, 500);
+                }
+
+            });
+
+            //左侧固定导航点击跳转
+            $('.aside-nav-lists>li').click(function () {
+                var count = $(this).index() + 1;
+                if (count == 1) {
+                    $('html,body').animate({ scrollTop: one_top * count - 100 }, 500);
+                } else if (count == 2) {
+                    $('html,body').animate({ scrollTop: one_top * count + 300 }, 500);
+                } else if (count == 5) {
+                    $('html,body').animate({ scrollTop: one_top * count - 100 }, 500);
+                } else if (count == 7) {
+                    $('html,body').animate({ scrollTop: one_top * count + 500 }, 500);
+                } else if (count == 6) {
+                    $('html,body').animate({ scrollTop: one_top * count - 200 }, 500);
+                }
+                else {
+                    $('html,body').animate({ scrollTop: one_top * count + 200 }, 500);
+                }
+
+            });
+
+
+            //返回顶部
+            $('.return-top').click(function () {
+                $('html,body').animate({ scrollTop: 0 }, 800);
+            });
+            $('.dingbu').click(function () {
+                $('html,body').animate({ scrollTop: 0 }, 800);
+            })
 
         })
-
+        $('.btn-danger').click(function(){
+                localStorage.removeItem("username");  
+                load_data();
+                 console.log(1222);
+            })
 
 
     </script>
